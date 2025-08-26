@@ -16,7 +16,7 @@ describe('threadsReducer function', () => {
   it('should return initial state when given by unknown action', () => {
     // arrange
     const initialState = {
-      threads: [],
+      threads: ['SENGAJA_SALAH_UNTUK_SCREENSHOT_CI_ERROR'], // Ini sengaja dibuat salah untuk mendapatkan screenshot CI error
       isLoading: false,
       error: null,
     };
