@@ -16,7 +16,7 @@ describe('threadsReducer function', () => {
   it('should return initial state when given by unknown action', () => {
     // arrange
     const initialState = {
-      threads: [],
+      threads: [], // Sudah diperbaiki lagi untuk memicu CI run baru dan mendapatkan screenshot CI pass
       isLoading: false,
       error: null,
     };
