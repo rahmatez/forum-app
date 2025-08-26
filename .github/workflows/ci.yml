@@ -22,13 +22,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    # Configure npm to avoid rate limiting issues
-    - name: Configure npm
-      run: |
-        npm config set fetch-retry-maxtimeout 120000
-        npm config set fetch-retry-mintimeout 30000
-        npm config set fetch-retries 5
-    - run: npm ci --no-audit --prefer-offline
+    - run: npm ci
+    - run: npm run lint
     - run: npm test
     - run: npm run build
 
@@ -43,13 +38,7 @@ jobs:
         with:
           node-version: '18.x'
           cache: 'npm'
-      # Configure npm to avoid rate limiting issues
-      - name: Configure npm
-        run: |
-          npm config set fetch-retry-maxtimeout 120000
-          npm config set fetch-retry-mintimeout 30000
-          npm config set fetch-retries 5
-      - run: npm ci --no-audit --prefer-offline
+      - run: npm ci
       - run: npm run build
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v20
